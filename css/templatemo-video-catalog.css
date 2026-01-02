@@ -1690,4 +1690,287 @@ footer .tm-text-link {
 footer .tm-text-link:hover {
     color: var(--accent-hover) !important;
 }
+
+/* ============================================
+   FOOTER ENHANCEMENT: SUBSCRIBE + CONTACT CARDS
+   ============================================ */
+
+/* ----- Footer Main Section ----- */
+.footer-main-section {
+    margin: 40px 0 50px 0;
+    padding: 40px 30px;
+    background: rgba(26, 31, 58, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.footer-main-section:hover {
+    background: rgba(26, 31, 58, 0.4);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ----- Footer Headings ----- */
+.footer-title {
+    color: var(--text-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.footer-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+/* ----- Subscribe Form ----- */
+.tm-subscribe-form {
+    display: flex;
+    gap: 10px;
+    max-width: 100%;
+}
+
+.tm-email-input {
+    flex: 1;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tm-email-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 20px rgba(9, 197, 247, 0.3);
+}
+
+.tm-email-input::placeholder {
+    color: var(--text-muted);
+}
+
+.tm-subscribe-btn {
+    padding: 15px 35px;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-hover) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tm-subscribe-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(9, 197, 247, 0.4);
+}
+
+.tm-subscribe-btn:active {
+    transform: translateY(-1px);
+}
+
+/* ----- Contact Quick Cards Container ----- */
+.footer-contact-quick {
+    width: 100%;
+}
+
+/* ----- Individual Contact Cards ----- */
+.footer-quick-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10px;
+    background: rgba(26, 31, 58, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    min-height: 90px;
+}
+
+.footer-quick-card:hover {
+    background: rgba(26, 31, 58, 0.8);
+    border-color: var(--accent-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(9, 197, 247, 0.25);
+}
+
+.footer-quick-card i {
+    font-size: 1.75rem;
+    color: var(--accent-primary);
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.footer-quick-card:hover i {
+    transform: scale(1.1);
+    color: var(--accent-hover);
+}
+
+.footer-quick-card span {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.footer-quick-card:hover span {
+    color: var(--text-primary);
+}
+
+/* ----- Social Media Footer (mevcut stilleri koruyoruz) ----- */
+.tm-social-footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0 30px 0;
+}
+
+.tm-social-link {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.tm-social-link:hover {
+    color: var(--accent-primary);
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* ----- Copyright Text ----- */
+.copyright-text {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+    padding-bottom: 30px;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* ----- Tablet (768px - 991px) ----- */
+@media (max-width: 991px) {
+    .footer-main-section {
+        padding: 30px 20px;
+        margin: 30px 0 40px 0;
+    }
+    
+    .footer-title {
+        font-size: 1.75rem;
+    }
+    
+    .footer-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Subscribe form altına contact cards geçer */
+    .tm-subscribe-form {
+        margin-bottom: 0;
+    }
+    
+    /* Contact cards 2x2 grid olur */
+    .footer-contact-quick .col-6 {
+        max-width: 50%;
+        flex: 0 0 50%;
+    }
+}
+
+/* ----- Mobile (576px - 767px) ----- */
+@media (max-width: 767px) {
+    .footer-title {
+        font-size: 1.5rem;
+    }
+    
+    .footer-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .footer-main-section {
+        padding: 25px 15px;
+    }
+}
+
+/* ----- Small Mobile (≤576px) ----- */
+@media (max-width: 576px) {
+    .footer-title {
+        font-size: 1.35rem;
+    }
+    
+    .footer-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .footer-main-section {
+        padding: 20px 15px;
+        margin: 25px 0 35px 0;
+    }
+    
+    /* Form elemanları dikey olur */
+    .tm-subscribe-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .tm-subscribe-btn {
+        width: 100%;
+        padding: 14px 20px;
+    }
+    
+    /* Contact cards biraz küçülür */
+    .footer-quick-card {
+        padding: 18px 10px;
+        min-height: 85px;
+    }
+    
+    .footer-quick-card i {
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+    }
+    
+    .footer-quick-card span {
+        font-size: 0.8rem;
+    }
+    
+    /* Social icons biraz küçülür */
+    .tm-social-link {
+        font-size: 1.3rem;
+    }
+    
+    .tm-social-footer {
+        gap: 15px;
+        margin: 30px 0 25px 0;
+    }
+    
+    .copyright-text {
+        font-size: 0.85rem;
+        padding-bottom: 25px;
+    }
+}
+
+/* ----- Extra Small Mobile (≤400px) ----- */
+@media (max-width: 400px) {
+    .footer-quick-card {
+        padding: 16px 8px;
+        min-height: 80px;
+    }
+    
+    .footer-quick-card i {
+        font-size: 1.4rem;
+    }
+    
+    .footer-quick-card span {
+        font-size: 0.75rem;
+    }
+}
 }

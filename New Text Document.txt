@@ -1,7 +1,0 @@
-<iframe src="https://www.google.com/maps/d/embed?mid=1Yl1laggJZdzaO0YZ1pj_XeNtlS0N5ghN" width="640" height="480"></iframe>
-
-
-
-<a class="nav-link tm-nav-link" href="3D Works.html">3D Works</a>
-
-<a class="nav-link tm-nav-link" href="3D Works.html">3D Works</a></li>

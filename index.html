@@ -47,13 +47,16 @@
                                     <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                                         <ul class="navbar-nav text-uppercase">
                                             <li class="nav-item active">
-                                                <a class="nav-link tm-nav-link" href="#">Videos <span class="sr-only">(current)</span></a>
+                                                <a class="nav-link tm-nav-link" href="index.html">Ana Sayfa <span class="sr-only">(current)</span></a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link tm-nav-link" href="about.html">About</a>
+                                                <a class="nav-link tm-nav-link" href="projects.html">Projeler</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link tm-nav-link" href="contact.html">Contact</a>
+                                                <a class="nav-link tm-nav-link" href="about.html">Hakkımda</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link tm-nav-link" href="contact.html">İletişim</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -63,31 +66,117 @@
                     </div>
                 </div>
             </div>
-            <div class="tm-welcome-container text-center text-white">
-                <div class="tm-welcome-container-inner">
-                        <span></span>
-                    </a>
+            
+            <!-- Modern Hero Section -->
+            <div class="hero-section">
+                <div class="animated-bg">
+                    <div class="gradient-orb orb-1"></div>
+                    <div class="gradient-orb orb-2"></div>
+                    <div class="gradient-orb orb-3"></div>
+                </div>
+                
+                <div class="hero-content">
+                    <h1 class="hero-title">Erol Kaplan</h1>
+                    <div class="hero-subtitle">
+                        <span class="typing-text">Motion Graphic Designer • Director • App Developer</span>
+                    </div>
+                    <p class="hero-description">12+ yıllık sektör deneyimi ile televizyon, dijital medya ve yazılım projelerinde uzman</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">12+</span>
+                            <span class="stat-label">Yıl Deneyim</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Proje</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Ülke</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-cta">
+                        <a href="projects.html" class="btn-primary">Projelerim</a>
+                        <a href="#tm-section-2" class="btn-secondary">Video Portfolio</a>
+                    </div>
                 </div>
             </div>
-
-            <div id="tm-video-container">
-                <video autoplay muted loop id="tm-video">
-                    <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
-                        <source src="video/wheat-field.mp4" type="video/mp4">
-                </video>    
-            </div>
-            
-            <i id="tm-video-control-button" class="fas fa-pause"></i>
         </div>
 
         <div class="container-fluid">
             <div id="content" class="mx-auto tm-content-container">
                 <main>
-                    <div class="row">
+                    <!-- Featured Projects Section -->
+                    <section class="featured-projects-section" id="tm-section-1-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 mb-4">
+                                    <h2 class="section-title">Dijital Projelerim</h2>
+                                    <p class="section-subtitle">iOS ve Android platformlarında yayında olan uygulamalarım</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <!-- KeepFresh -->
+                                <div class="col-md-6 mb-4">
+                                    <div class="featured-project-card">
+                                        <div class="project-video">
+                                            <iframe 
+                                                src="https://www.youtube.com/embed/M_B50-QVcTw" 
+                                                title="KeepFresh - AI Destekli Gıda Takip Uygulaması"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                        <div class="project-info">
+                                            <h3>KeepFresh</h3>
+                                            <p>AI Destekli Gıda Takip Uygulaması</p>
+                                            <div class="project-badges">
+                                                <span class="badge">iOS</span>
+                                                <span class="badge">Android</span>
+                                                <span class="badge">AI</span>
+                                            </div>
+                                            <a href="projects.html#keepfresh" class="btn-more">Detaylar →</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Kurmatik -->
+                                <div class="col-md-6 mb-4">
+                                    <div class="featured-project-card">
+                                        <div class="project-video">
+                                            <iframe 
+                                                src="https://www.youtube.com/embed/_g0ER-cG2tE" 
+                                                title="Kurmatik - Akıllı Finans Yönetimi"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                        <div class="project-info">
+                                            <h3>Kurmatik</h3>
+                                            <p>Akıllı Finans Yönetimi Uygulaması</p>
+                                            <div class="project-badges">
+                                                <span class="badge">iOS</span>
+                                                <span class="badge">Android</span>
+                                                <span class="badge">Fintech</span>
+                                            </div>
+                                            <a href="projects.html#kurmatik" class="btn-more">Detaylar →</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="row" id="tm-section-2">
                         <div class="col-12">
-                            <h2 class="tm-page-title mb-4">HOME PAGE</h2>
+                            <h2 class="tm-page-title mb-4">Video Portfolio</h2>
                             <div class="tm-categories-container mb-5">
-                                <h3 class="tm-text-primary tm-categories-text">Categories:</h3>
+                                <h3 class="tm-text-primary tm-categories-text">Kategoriler:</h3>
                                 <div class="p-4 tm-bg-gray tm-catalog-item-description">
                                 <ul class="nav tm-category-list">
 
@@ -127,8 +216,8 @@
                 <div class="row mt-5 pt-3">
                     <div class="col-xl-6 col-lg-12 mb-4">
                         <div class="tm-bg-gray p-5 h-100">
-                            <h3 class="tm-text-primary mb-3"> fiyat teklifi</h3>
-                            <p class="mb-5">Please write to us, Thank you.</p>
+                            <h3 class="tm-text-primary mb-3">Projeleriniz için benimle iletişime geçin</h3>
+                            <p class="mb-5">Lütfen mesajınızı bırakın, teşekkürler.</p>
                             <form action="" method="GET" class="tm-subscribe-form">
                                 <input type="text" name="email" placeholder="Your Email..." required>
                                 <button type="submit" class="btn rounded-0 btn-primary tm-btn-small">Subscribe</button>
@@ -143,9 +232,25 @@
 
                 <footer class="row pt-5">
                     <div class="col-12">
-                        <p class="text-right">Copyright 2026 Erol Kaplan
-                        
-                        
+                        <!-- Social Media Icons -->
+                        <div class="tm-social-footer text-center mb-4">
+                            <a href="https://www.linkedin.com/in/erolkaplan/" target="_blank" class="mx-2" title="LinkedIn">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                            <a href="https://x.com/XGundemm" target="_blank" class="mx-2" title="X (Twitter) - GündemX">
+                                <i class="fab fa-x-twitter fa-2x"></i>
+                            </a>
+                            <a href="https://keepfreshai.store" target="_blank" class="mx-2" title="KeepFresh App">
+                                <i class="fas fa-mobile-alt fa-2x"></i>
+                            </a>
+                            <a href="https://www.kurmatik.xyz" target="_blank" class="mx-2" title="Kurmatik App">
+                                <i class="fas fa-chart-line fa-2x"></i>
+                            </a>
+                            <a href="https://wa.me/905356115641" target="_blank" class="mx-2" title="WhatsApp">
+                                <i class="fab fa-whatsapp fa-2x"></i>
+                            </a>
+                        </div>
+                        <p class="text-center">Copyright 2026 Erol Kaplan - Motion Graphic Designer • Director • App Developer</p>
                     </div>
                 </footer>
             </div> <!-- tm-content-container -->
@@ -155,66 +260,6 @@
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>
-        function setVideoSize() {
-            const vidWidth = 1920;
-            const vidHeight = 1080;
-            let windowWidth = window.innerWidth;
-            let newVidWidth = windowWidth;
-            let newVidHeight = windowWidth * vidHeight / vidWidth;
-            let marginLeft = 4;
-            let marginTop = 4;
-
-            if (newVidHeight < 500) {
-                newVidHeight = 500;
-                newVidWidth = newVidHeight * vidWidth / vidHeight;
-            }
-
-            if(newVidWidth > windowWidth) {
-                marginLeft = -((newVidWidth - windowWidth) / 2);
-            }
-
-            if(newVidHeight > 720) {
-                marginTop = -((newVidHeight - $('#tm-video-container').height()) / 2);
-            }
-
-            const tmVideo = $('#tm-video');
-
-            tmVideo.css('width', newVidWidth);
-            tmVideo.css('height', newVidHeight);
-            tmVideo.css('margin-left', marginLeft);
-            tmVideo.css('margin-top', marginTop);
-        }
-
-        $(document).ready(function () {
-            /************** Video background *********/
-
-            setVideoSize();
-
-            // Set video background size based on window size
-            let timeout;
-            window.onresize = function () {
-                clearTimeout(timeout);
-                timeout = setTimeout(setVideoSize, 100);
-            };
-
-            // Play/Pause button for video background      
-            const btn = $("#tm-video-control-button");
-
-            btn.on("click", function (e) {
-                const video = document.getElementById("tm-video");
-                $(this).removeClass();
-
-                if (video.paused) {
-                    video.play();
-                    $(this).addClass("fas fa-pause");
-                } else {
-                    video.pause();
-                    $(this).addClass("fas fa-play");
-                }
-            });
-        })
-    </script>
 </body>
 
 </html>

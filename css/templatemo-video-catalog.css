@@ -1338,6 +1338,23 @@ video {
     transform: scale(1.2) rotate(10deg);
 }
 
+/* ===== CONTACT PAGE COMPACT DESIGN ===== */
+
+/* Contact page specific - add top padding since header is removed */
+body .tm-page-wrap {
+    padding-top: 0;
+}
+
+/* Contact section - reduce top margin */
+.container-fluid .tm-content-container .row.mt-3 {
+    margin-top: 120px !important;
+}
+
+/* Contact cards more prominent */
+.contact-card {
+    margin-bottom: 30px;
+}
+
 .social-card-link {
     text-decoration: none;
     display: block;
@@ -1423,6 +1440,11 @@ video {
     
     .featured-project-card {
         margin-bottom: 30px;
+    }
+    
+    /* Contact page responsive */
+    .container-fluid .tm-content-container .row.mt-3 {
+        margin-top: 100px !important;
     }
 }
 

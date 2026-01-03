@@ -342,7 +342,7 @@
         function animateCounter(target) {
             let current = 0;
             const duration = 2000; // 2 saniye
-            const FRAME_DURATION = 16; // 60fps (1000ms / 60 ≈ 16ms)
+            const FRAME_DURATION = 16; // ~60fps (approximately 1000ms / 60)
             const increment = target / (duration / FRAME_DURATION);
             
             const timer = setInterval(() => {

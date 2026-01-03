@@ -1975,207 +1975,218 @@ footer .tm-text-link:hover {
 }
 
 /* ============================================
-   HERO LEFT CARDS - WORKS PORTFOLIO + VISITOR COUNTER
+   YENİ BÜYÜK DİJİTAL ZİYARETÇİ SAYACI
    ============================================ */
 
-/* ----- Container ----- */
-.hero-left-cards {
+/* ----- Ana Kart ----- */
+.hero-visitor-badge {
     position: absolute;
     top: 100px; /* Navbar altında */
     left: 40px;
+    width: 250px;
+    height: 220px;
+    padding: 30px 20px;
+    
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    
+    /* Zemin - Oval/Rounded Kare */
+    background: rgba(10, 14, 39, 0.4); /* Opacity düşük */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(9, 197, 247, 0.3); /* Turkuaz glow */
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 100;
 }
 
-/* ----- Visitor Counter Card ----- */
-.visitor-counter-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    padding: 25px 20px;
-    background: rgba(26, 31, 58, 0.9);
-    border: 1px solid rgba(9, 197, 247, 0.3);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.visitor-counter-card:hover {
-    background: rgba(26, 31, 58, 1);
+/* Hover effect */
+.hero-visitor-badge:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(9, 197, 247, 0.4),
+                0 0 80px rgba(9, 197, 247, 0.2);
     border-color: rgba(9, 197, 247, 0.6);
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 20px 50px rgba(9, 197, 247, 0.3);
 }
 
-/* Göz İkonu + Pulse Animasyon */
-.visitor-counter-icon {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* ----- Göz İkonu ----- */
+.visitor-badge-icon {
+    width: 60px;
+    height: 60px;
     background: linear-gradient(135deg, #09c5f7 0%, #0796bd 100%);
     border-radius: 50%;
-    color: white;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    animation: pulse-glow 2s ease-in-out infinite;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    animation: pulse-glow 2s infinite ease-in-out;
 }
 
+.visitor-badge-icon i {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Pulse animation */
 @keyframes pulse-glow {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(9, 197, 247, 0.7);
+        box-shadow: 0 0 20px rgba(9, 197, 247, 0.6);
         transform: scale(1);
     }
     50% {
-        box-shadow: 0 0 0 15px rgba(9, 197, 247, 0);
+        box-shadow: 0 0 40px rgba(9, 197, 247, 1),
+                    0 0 60px rgba(9, 197, 247, 0.5);
         transform: scale(1.05);
     }
 }
 
-/* Sayaç İçeriği */
-.visitor-counter-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-
-.visitor-counter-number {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #09c5f7;
-    line-height: 1;
-    text-shadow: 0 0 20px rgba(9, 197, 247, 0.5);
+/* ----- Dijital Sayı ----- */
+.visitor-badge-number {
     font-family: 'Orbitron', 'Courier New', monospace;
-    letter-spacing: 2px;
+    font-size: 3rem; /* BÜYÜK! */
+    font-weight: 700;
+    letter-spacing: 4px; /* Rakamlar aralıklı */
+    
+    /* Gradient text */
+    color: #09c5f7; /* Fallback */
+    background: linear-gradient(180deg, #09c5f7 0%, #0796bd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    /* Neon glow */
+    text-shadow: 0 0 20px rgba(9, 197, 247, 0.8),
+                 0 0 40px rgba(9, 197, 247, 0.4);
+    
+    /* Smooth transition for number changes */
+    transition: all 0.3s ease;
 }
 
-.visitor-counter-label {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+/* ----- Label ----- */
+.visitor-badge-label {
+    font-size: 0.9rem;
     font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-/* ============================================
-   RESPONSIVE BREAKPOINTS
-   ============================================ */
+/* ===== RESPONSIVE ===== */
 
-/* Tablet (768px - 991px) */
+/* Tablet (991px ve altı) */
 @media (max-width: 991px) {
-    .hero-left-cards {
-        top: 80px;
-        left: 30px;
-        gap: 15px;
+    .hero-visitor-badge {
+        width: 220px;
+        height: 200px;
+        padding: 25px 15px;
     }
     
-    .visitor-counter-card {
-        width: 180px;
-        padding: 25px 18px;
+    .visitor-badge-icon {
+        width: 55px;
+        height: 55px;
     }
     
-    .visitor-counter-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3rem;
-    }
-    
-    .visitor-counter-number {
+    .visitor-badge-icon i {
         font-size: 1.75rem;
     }
+    
+    .visitor-badge-number {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
 }
 
-/* Mobile (576px - 767px) */
+/* Tablet Small (768px ve altı) */
 @media (max-width: 768px) {
-    .hero-left-cards {
-        top: 70px;
+    .hero-visitor-badge {
+        width: 180px;
+        height: 170px;
+        padding: 20px 12px;
+        top: 80px;
         left: 20px;
-        gap: 12px;
     }
     
-    .visitor-counter-card {
-        width: 150px;
-        padding: 20px 15px;
+    .visitor-badge-icon {
+        width: 50px;
+        height: 50px;
     }
     
-    .visitor-counter-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-        margin-bottom: 12px;
-    }
-    
-    .visitor-counter-number {
+    .visitor-badge-icon i {
         font-size: 1.5rem;
     }
     
-    .visitor-counter-label {
+    .visitor-badge-number {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .visitor-badge-label {
         font-size: 0.75rem;
+        letter-spacing: 2px;
     }
 }
 
-/* Small Mobile (≤576px) */
+/* Mobile (576px ve altı) */
 @media (max-width: 576px) {
-    .hero-left-cards {
-        top: 60px;
+    .hero-visitor-badge {
+        width: 160px;
+        height: 150px;
+        padding: 15px 10px;
+        top: 70px;
         left: 15px;
         gap: 10px;
     }
     
-    .visitor-counter-card {
-        width: 130px;
-        padding: 18px 12px;
+    .visitor-badge-icon {
+        width: 45px;
+        height: 45px;
     }
     
-    .visitor-counter-icon {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-        margin-bottom: 10px;
+    .visitor-badge-icon i {
+        font-size: 1.25rem;
     }
     
-    .visitor-counter-number {
-        font-size: 1.3rem;
+    .visitor-badge-number {
+        font-size: 1.75rem;
+        letter-spacing: 1px;
     }
     
-    .visitor-counter-label {
+    .visitor-badge-label {
         font-size: 0.7rem;
         letter-spacing: 1.5px;
     }
 }
 
-/* Extra Small Mobile (≤400px) */
+/* Extra Small (400px ve altı) */
 @media (max-width: 400px) {
-    .hero-left-cards {
-        top: 50px;
+    .hero-visitor-badge {
+        width: 140px;
+        height: 130px;
+        padding: 12px 8px;
+        top: 65px;
         left: 10px;
-        gap: 8px;
     }
     
-    .visitor-counter-card {
-        width: 110px;
-        padding: 15px 10px;
+    .visitor-badge-icon {
+        width: 40px;
+        height: 40px;
     }
     
-    .visitor-counter-icon {
-        width: 30px;
-        height: 30px;
-        font-size: 0.9rem;
-        margin-bottom: 8px;
-    }
-    
-    .visitor-counter-number {
+    .visitor-badge-icon i {
         font-size: 1.1rem;
     }
     
-    .visitor-counter-label {
+    .visitor-badge-number {
+        font-size: 1.5rem;
+        letter-spacing: 0px;
+    }
+    
+    .visitor-badge-label {
         font-size: 0.65rem;
         letter-spacing: 1px;
     }

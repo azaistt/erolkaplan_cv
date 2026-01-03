@@ -12,6 +12,7 @@
     <link rel="canonical" href="https://azaistt.github.io/erolkaplan_cv/">
     <link rel="stylesheet" href="fontawesome/css/all.min.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- https://fonts.google.com/ -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/templatemo-video-catalog.css">
@@ -73,6 +74,30 @@
                     <div class="gradient-orb orb-1"></div>
                     <div class="gradient-orb orb-2"></div>
                     <div class="gradient-orb orb-3"></div>
+                </div>
+                
+                <!-- SOL ÜST KARTLAR (YENİ CONTAINER) -->
+                <div class="hero-left-cards">
+                    
+                    <!-- 1. WORKS PORTFOLIO KARTI -->
+                    <div class="works-portfolio-card">
+                        <div class="works-portfolio-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="works-portfolio-title">Works Portfolio</h3>
+                    </div>
+                    
+                    <!-- 2. ZİYARETÇİ SAYACI KARTI (YENİ) -->
+                    <div class="visitor-counter-card">
+                        <div class="visitor-counter-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="visitor-counter-content">
+                            <span class="visitor-counter-number" id="visitor-count">0</span>
+                            <span class="visitor-counter-label">Ziyaretçi</span>
+                        </div>
+                    </div>
+                    
                 </div>
                 
                 <div class="hero-content">
@@ -315,6 +340,50 @@
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
+    <!-- JAVASCRIPT: Ziyaretçi Sayacı - Counter Animation + API -->
+    <script>
+    // Ziyaretçi Sayacı - Counter Animation + API
+    (function() {
+        const counterElement = document.getElementById('visitor-count');
+        if (!counterElement) return;
+        
+        // Counter animasyon fonksiyonu
+        function animateCounter(target) {
+            let current = 0;
+            const increment = target / 100;
+            const duration = 2000; // 2 saniye
+            const stepTime = duration / 100;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                counterElement.textContent = Math.floor(current).toLocaleString('tr-TR');
+            }, stepTime);
+        }
+        
+        // hits.sh API'den gerçek sayıyı çek
+        fetch('https://hits.sh/azaistt.github.io/erolkaplan_cv.svg?style=flat&label=&color=09c5f7')
+            .then(response => response.text())
+            .then(svg => {
+                // SVG içinden sayıyı parse et
+                const match = svg.match(/>(\d+)</);
+                if (match && match[1]) {
+                    const count = parseInt(match[1], 10);
+                    animateCounter(count + 1000); // +1000 başlangıç boost (opsiyonel)
+                } else {
+                    animateCounter(1234); // Fallback
+                }
+            })
+            .catch(error => {
+                console.log('Visitor counter API error:', error);
+                animateCounter(1234); // Fallback
+            });
+    })();
+    </script>
 </body>
 
 </html>

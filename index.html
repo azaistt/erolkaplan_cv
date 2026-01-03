@@ -76,28 +76,18 @@
                     <div class="gradient-orb orb-3"></div>
                 </div>
                 
-                <!-- SOL ÜST KARTLAR (YENİ CONTAINER) -->
-                <div class="hero-left-cards">
-                    
-                    <!-- 1. WORKS PORTFOLIO KARTI -->
-                    <div class="works-portfolio-card">
-                        <div class="works-portfolio-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h3 class="works-portfolio-title">Works Portfolio</h3>
+                <!-- DİJİTAL ZİYARETÇİ SAYACI (TEK KART) -->
+                <div class="hero-visitor-badge">
+                    <!-- Göz İkonu -->
+                    <div class="visitor-badge-icon">
+                        <i class="fas fa-eye"></i>
                     </div>
                     
-                    <!-- 2. ZİYARETÇİ SAYACI KARTI (YENİ) -->
-                    <div class="visitor-counter-card">
-                        <div class="visitor-counter-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <div class="visitor-counter-content">
-                            <span class="visitor-counter-number" id="visitor-count">0</span>
-                            <span class="visitor-counter-label">Ziyaretçi</span>
-                        </div>
-                    </div>
+                    <!-- Dijital Sayı -->
+                    <div class="visitor-badge-number" id="visitor-count">0</div>
                     
+                    <!-- Label -->
+                    <div class="visitor-badge-label">Ziyaretçi</div>
                 </div>
                 
                 <div class="hero-content">
@@ -341,46 +331,57 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     
-    <!-- JAVASCRIPT: Ziyaretçi Sayacı - Counter Animation + API -->
+    <!-- JAVASCRIPT: Dijital Ziyaretçi Sayacı - Counter Animation + API -->
     <script>
-    // Ziyaretçi Sayacı - Counter Animation + API
+    // Dijital Ziyaretçi Sayacı - Dinamik API + Counter Animation
     (function() {
         const counterElement = document.getElementById('visitor-count');
         if (!counterElement) return;
         
-        // Counter animasyon fonksiyonu
+        // Counter animasyon fonksiyonu (0 → target)
         function animateCounter(target) {
             let current = 0;
-            const increment = target / 100;
             const duration = 2000; // 2 saniye
-            const stepTime = duration / 100;
+            const FRAME_DURATION = 16; // ~60fps (approximately 1000ms / 60)
+            const increment = target / (duration / FRAME_DURATION);
             
             const timer = setInterval(() => {
                 current += increment;
+                
                 if (current >= target) {
                     current = target;
                     clearInterval(timer);
                 }
+                
+                // Dijital format (Türkçe): 1.234
                 counterElement.textContent = Math.floor(current).toLocaleString('tr-TR');
-            }, stepTime);
+            }, FRAME_DURATION);
         }
         
-        // hits.sh API'den gerçek sayıyı çek
-        fetch('https://hits.sh/azaistt.github.io/erolkaplan_cv.svg?style=flat&label=&color=09c5f7')
+        // hits.sh API - Gerçek Ziyaretçi Sayısı
+        const apiUrl = 'https://hits.sh/azaistt.github.io/erolkaplan_cv.svg?style=flat&label=&color=09c5f7';
+        
+        fetch(apiUrl)
             .then(response => response.text())
             .then(svg => {
-                // SVG içinden sayıyı parse et
+                // SVG içinden sayıyı parse et: <text>123</text>
                 const match = svg.match(/>(\d+)</);
+                
                 if (match && match[1]) {
                     const count = parseInt(match[1], 10);
-                    animateCounter(count + 1000); // +1000 başlangıç boost (opsiyonel)
+                    
+                    // +1000 boost (opsiyonel - prestijli görünüm için)
+                    // İstemezseniz sadece "count" kullanın
+                    animateCounter(count + 1000);
                 } else {
-                    animateCounter(1234); // Fallback
+                    // Parse edilemezse fallback
+                    animateCounter(1234);
                 }
             })
             .catch(error => {
                 console.log('Visitor counter API error:', error);
-                animateCounter(1234); // Fallback
+                // API hatası durumunda fallback
+                animateCounter(1234);
             });
     })();
     </script>

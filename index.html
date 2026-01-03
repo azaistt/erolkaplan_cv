@@ -342,7 +342,8 @@
         function animateCounter(target) {
             let current = 0;
             const duration = 2000; // 2 saniye
-            const increment = target / (duration / 16); // 60fps
+            const FRAME_DURATION = 16; // 60fps (1000ms / 60 ≈ 16ms)
+            const increment = target / (duration / FRAME_DURATION);
             
             const timer = setInterval(() => {
                 current += increment;
@@ -354,7 +355,7 @@
                 
                 // Dijital format (Türkçe): 1.234
                 counterElement.textContent = Math.floor(current).toLocaleString('tr-TR');
-            }, 16);
+            }, FRAME_DURATION);
         }
         
         // hits.sh API - Gerçek Ziyaretçi Sayısı

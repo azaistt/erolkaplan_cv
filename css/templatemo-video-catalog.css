@@ -2059,7 +2059,7 @@ footer .tm-text-link:hover {
     font-family: 'Orbitron', 'Courier New', 'Lucida Console', monospace;
     
     /* Gradient Text */
-    color: #09c5f7;
+    color: #09c5f7; /* Fallback for older browsers */
     background: linear-gradient(180deg, #09c5f7 0%, #0796bd 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -2069,9 +2069,6 @@ footer .tm-text-link:hover {
     text-shadow: 
         0 0 30px rgba(9, 197, 247, 0.8),
         0 0 60px rgba(9, 197, 247, 0.4);
-    
-    /* Safari/iOS Fix */
-    filter: brightness(1.1);
 }
 
 /* ----- Label ----- */

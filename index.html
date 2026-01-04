@@ -326,12 +326,21 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     
-    <!-- YENİ JAVASCRIPT - COUNTER ANIMATION -->
+    <!-- YENİ JAVASCRIPT - COUNTER ANIMATION WITH localStorage -->
     <script>
-    // Dijital Ziyaretçi Sayacı - Dinamik API + Counter Animation
+    // Dijital Ziyaretçi Sayacı - Dinamik API + localStorage + Counter Animation
     (function() {
         const counterElement = document.getElementById('visitor-count');
         if (!counterElement) return;
+        
+        // Constants
+        const BASE_COUNT = 1234;  // Fallback count when API fails
+        const COUNT_BOOST = 1000;  // Additional boost for display purposes
+        
+        // localStorage - Increment local visit count on every page load
+        let localHits = parseInt(localStorage.getItem('visit_count_offset') || '0');
+        localHits++;
+        localStorage.setItem('visit_count_offset', localHits);
         
         // Counter animasyon fonksiyonu (0 → target)
         function animateCounter(target) {
@@ -359,22 +368,36 @@
         fetch(apiUrl)
             .then(response => response.text())
             .then(svg => {
-                // SVG içinden sayıyı parse et: <text>123</text>
-                const match = svg.match(/>(\d+)</);
+                // Improved SVG parsing - try multiple regex patterns for robustness
+                let count = 0;
                 
+                // Pattern 1: <text>123</text>
+                let match = svg.match(/<text[^>]*>(\d+)<\/text>/);
                 if (match && match[1]) {
-                    const count = parseInt(match[1], 10);
-                    // +1000 boost (opsiyonel - prestijli görünüm için)
-                    animateCounter(count + 1000);
+                    count = parseInt(match[1], 10);
                 } else {
-                    // Parse edilemezse fallback
-                    animateCounter(1234);
+                    // Pattern 2: >123<
+                    match = svg.match(/>(\d+)</);
+                    if (match && match[1]) {
+                        count = parseInt(match[1], 10);
+                    }
+                }
+                
+                if (count > 0) {
+                    // Add local offset + boost to API count
+                    const total = count + localHits + COUNT_BOOST;
+                    animateCounter(total);
+                } else {
+                    // Parse edilemezse fallback with local offset
+                    const total = BASE_COUNT + localHits;
+                    animateCounter(total);
                 }
             })
             .catch(error => {
                 console.log('Visitor counter API error:', error);
-                // API hatası durumunda fallback
-                animateCounter(1234);
+                // API hatası durumunda fallback with local offset
+                const total = BASE_COUNT + localHits;
+                animateCounter(total);
             });
     })();
     </script>
